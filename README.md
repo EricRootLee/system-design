@@ -2,7 +2,7 @@
 
 Hey, welcome to the course. I hope this course provides a great learning experience.
 
-_This course is also available on my [website](https://karanpratapsingh.com/courses/system-design). Please leave a ⭐ as motivation if this was helpful!_
+_This course is also available on my [website](https://karanpratapsingh.com/courses/system-design) and as an ebook on [leanpub](https://leanpub.com/systemdesign). Please leave a ⭐ as motivation if this was helpful!_
 
 # Table of contents
 
@@ -1739,7 +1739,7 @@ Data partitioning is a technique to break up a database into many smaller parts.
 
 ### Methods
 
-There are many different ways one could use to decide how to break up an application database into multiple smaller DBs. Below are three of the most popular methods used by various large-scale applications:
+There are many different ways one could use to decide how to break up an application database into multiple smaller DBs. Below are two of the most popular methods used by various large-scale applications:
 
 **Horizontal Partitioning (or Sharding)**
 
@@ -2285,7 +2285,7 @@ Some common disadvantages of monoliths are:
 - Requires commitment to a particular technology stack.
 - On each update, the entire application is redeployed.
 - Reduced reliability as a single bug can bring down the entire system.
-- Difficult to scale or adopt technologies new technologies.
+- Difficult to scale or adopt new technologies.
 
 ## Modular monoliths
 
@@ -4062,13 +4062,13 @@ _Note: Make sure to check any scale or traffic-related assumptions with your int
 Let us assume we have 50 million daily active users (DAU) and on average each user sends at least 10 messages to 4 different people every day. This gives us 2 billion messages per day.
 
 $$
-50 \space million \times 20 \space messages = 2 \space billion/day
+50 \space million \times 40 \space messages = 2 \space billion/day
 $$
 
-Messages can also contain media such as images, videos, or other files. We can assume that 5 percent of messages are media files shared by the users, which gives us additional 200 million files we would need to store.
+Messages can also contain media such as images, videos, or other files. We can assume that 5 percent of messages are media files shared by the users, which gives us additional 100 million files we would need to store.
 
 $$
-5 \space percent \times 2 \space billion = 200 \space million/day
+5 \space percent \times 2 \space billion = 100 \space million/day
 $$
 
 **What would be Requests Per Second (RPS) for our system?**
@@ -4087,7 +4087,7 @@ $$
 2 \space billion \times 100 \space bytes = \sim 200 \space GB/day
 $$
 
-As per our requirements, we also know that around 5 percent of our daily messages (100 million) are media files. If we assume each file is 50 KB on average, we will require 10 TB of storage every day.
+As per our requirements, we also know that around 5 percent of our daily messages (100 million) are media files. If we assume each file is 100 KB on average, we will require 10 TB of storage every day.
 
 $$
 100 \space million \times 100 \space KB = 10 \space TB/day
@@ -4448,7 +4448,7 @@ _Note: Make sure to check any scale or traffic-related assumptions with your int
 This will be a read-heavy system, let us assume we have 1 billion total users with 200 million daily active users (DAU), and on average each user tweets 5 times a day. This gives us 1 billion tweets per day.
 
 $$
-200 \space million \times 5 \space messages = 1 \space billion/day
+200 \space million \times 5 \space tweets = 1 \space billion/day
 $$
 
 Tweets can also contain media such as images, or videos. We can assume that 10 percent of tweets are media files shared by the users, which gives us additional 100 million files we would need to store.
@@ -4476,7 +4476,7 @@ $$
 We also know that around 10 percent of our daily messages (100 million) are media files per our requirements. If we assume each file is 50 KB on average, we will require 5 TB of storage every day.
 
 $$
-100 \space million \times 100 \space KB = 5 \space TB/day
+100 \space million \times 50 \space KB = 5 \space TB/day
 $$
 
 And for 10 years, we will require about 19 PB of storage.
@@ -5040,7 +5040,7 @@ This service handles user-related concerns such as authentication and user infor
 
 **Stream Service**
 
-The tweet service will handle video streaming-related functionality.
+The stream service will handle video streaming-related functionality.
 
 **Search Service**
 
